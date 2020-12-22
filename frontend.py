@@ -18,6 +18,38 @@ l5 = Label(win, text='Diet')
 l5.grid(row=2, column=0)
 
 l6 = Label(win, text='Python')
-l6.grid(row=2, column=1)
+l6.grid(row=2, column=2)
+
+date_text = StringVar()
+e1 = Entry(win, textvariable=date_text)
+e1.grid(row=0, column=1)
+
+earning_text = StringVar()
+e2 = Entry(win, textvariable=earning_text)
+e2.grid(row=0, column=3)
+
+exercise_text = StringVar()
+e3 = Entry(win, textvariable=exercise_text)
+e3.grid(row=1, column=1)
+
+study_text = StringVar()
+e4 = Entry(win, textvariable=study_text)
+e4.grid(row=1, column=3)
+
+diet_text = StringVar()
+e5 = Entry(win, textvariable=diet_text)
+e5.grid(row=2, column=1)
+
+python_text = StringVar()
+e6 = Entry(win, textvariable=python_text)
+e6.grid(row=2, column=3)
+
+listBox = Listbox(win, height=8, width=35)
+listBox.grid(row=3, column=0, rowspan=9, columnspan=2)
+
+sb = Scrollbar(win)
+sb.grid(row=3, column=2, rowspan=9)
+
+listBox.bind('<<ListboxSelection>>', getSelectedRow)
 
 win.mainloop()
