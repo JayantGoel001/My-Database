@@ -1,6 +1,5 @@
 from tkinter import *
 
-
 def getSelectedRow():
     pass
 
