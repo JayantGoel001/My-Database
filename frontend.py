@@ -6,6 +6,14 @@ def getSelectedRow():
     pass
 
 
+def addCommand():
+    backend.insert(date_text.get(), earning_text.get(), exercise_text.get(), study_text.get(), diet_text.get(),
+                   python_text.get())
+    listBox.delete(0, END)
+    listBox.insert(END, (date_text.get(), earning_text.get(), exercise_text.get(),
+                         study_text.get(), diet_text.get(), python_text.get()))
+
+
 def viewCommand():
     listBox.delete(0, END)
     for row in backend.view():
@@ -71,7 +79,7 @@ sb.grid(row=3, column=2, rowspan=9)
 
 listBox.bind('<<ListboxSelection>>', getSelectedRow)
 
-b1 = Button(win, text='ADD', width=12, pady=5)
+b1 = Button(win, text='ADD', width=12, pady=5, command=addCommand)
 b1.grid(row=3, column=3)
 
 b2 = Button(win, text='SEARCH', width=12, pady=5, command=searchCommand)
