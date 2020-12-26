@@ -14,7 +14,7 @@ def insert(date, earnings, exercise, study, diet, python):
     conn = sqlite3.connect('routine.db')
     cur = conn.cursor()
     cur.execute(
-        "INSERT INTO routine routine VALUES(NULL,?,?,?,?,?,?)", (date, earnings, exercise, study, diet, python))
+        "INSERT INTO routine VALUES(NULL,?,?,?,?,?,?)", (date, earnings, exercise, study, diet, python))
     conn.commit()
     conn.close()
 
