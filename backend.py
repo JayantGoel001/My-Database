@@ -14,7 +14,7 @@ def insert(date, earnings, exercise, study, diet, python):
     conn = sqlite3.connect('routine.db')
     cur = conn.cursor()
     cur.execute(
-        "INSERT INTO TABLE routine VALUES(NULL,?,?,?,?,?,?)", (date, earnings, exercise, study, diet, python))
+        "INSERT INTO routine routine VALUES(NULL,?,?,?,?,?,?)", (date, earnings, exercise, study, diet, python))
     conn.commit()
     conn.close()
 
@@ -47,3 +47,5 @@ def Search(date='', earnings='', exercise='', study='', diet='', python=''):
     conn.close()
     return rows
 
+
+connect()
