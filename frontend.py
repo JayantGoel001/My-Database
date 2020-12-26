@@ -1,5 +1,10 @@
 from tkinter import *
 
+
+def getSelectedRow():
+    pass
+
+
 win = Tk()
 
 l1 = Label(win, text='Date')
@@ -52,4 +57,20 @@ sb.grid(row=3, column=2, rowspan=9)
 
 listBox.bind('<<ListboxSelection>>', getSelectedRow)
 
+b1 = Button(win, text='ADD', width=12, pady=5)
+b1.grid(row=3, column=3)
+
+b2 = Button(win, text='SEARCH', width=12, pady=5)
+b2.grid(row=4, column=3)
+
+b3 = Button(win, text='DELETE', width=12, pady=5)
+b3.grid(row=5, column=3)
+
+b4 = Button(win, text='VIEW', width=12, pady=5)
+b4.grid(row=6, column=3)
+
+b5 = Button(win, text='CLOSE', width=12, pady=5, command=win.destroy)
+b5.grid(row=7, column=3)
+
+win.title("My Database")
 win.mainloop()
