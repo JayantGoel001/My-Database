@@ -1,9 +1,14 @@
 from tkinter import *
 import backend
 
+selected_row = []
 
-def getSelectedRow():
-    pass
+
+def getSelectedRow(event):
+    global selected_row
+    index = listBox.curselection()[0]
+    selected_row = listBox.get(index)
+    print(index)
 
 
 def addCommand():
@@ -25,6 +30,10 @@ def searchCommand():
     for row in backend.Search(date_text.get(), earning_text.get(), exercise_text.get(),
                               study_text.get(), diet_text.get(), python_text.get()):
         listBox.insert(END, row)
+
+
+def deleteCommand():
+    backend.delete(selected_row[0])
 
 
 win = Tk()
@@ -77,7 +86,7 @@ listBox.grid(row=3, column=0, rowspan=9, columnspan=2)
 sb = Scrollbar(win)
 sb.grid(row=3, column=2, rowspan=9)
 
-listBox.bind('<<ListboxSelection>>', getSelectedRow)
+listBox.bind('<<ListboxSelect>>', getSelectedRow)
 
 b1 = Button(win, text='ADD', width=12, pady=5, command=addCommand)
 b1.grid(row=3, column=3)
@@ -85,7 +94,7 @@ b1.grid(row=3, column=3)
 b2 = Button(win, text='SEARCH', width=12, pady=5, command=searchCommand)
 b2.grid(row=4, column=3)
 
-b3 = Button(win, text='DELETE', width=12, pady=5)
+b3 = Button(win, text='DELETE', width=12, pady=5, command=deleteCommand)
 b3.grid(row=5, column=3)
 
 b4 = Button(win, text='VIEW ALL', width=12, pady=5, command=viewCommand)
@@ -93,7 +102,6 @@ b4.grid(row=6, column=3)
 
 b5 = Button(win, text='CLOSE', width=12, pady=5, command=win.destroy)
 b5.grid(row=7, column=3)
-
 
 win.title("My Database")
 win.mainloop()
