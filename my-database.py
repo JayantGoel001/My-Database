@@ -96,7 +96,7 @@ python_text = StringVar()
 e6 = Entry(win, textvariable=python_text)
 e6.grid(row=2, column=3)
 
-listBox = Listbox(win, height=8, width=35)
+listBox = Listbox(win, height=8, width=40)
 listBox.grid(row=3, column=0, rowspan=9, columnspan=2)
 
 sb = Scrollbar(win)
