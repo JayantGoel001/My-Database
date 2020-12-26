@@ -3,12 +3,26 @@ import backend
 
 selected_row = []
 
+def deleteAllEntries():
+    e1.delete(0, END)
+    e2.delete(0, END)
+    e3.delete(0, END)
+    e4.delete(0, END)
+    e5.delete(0, END)
+    e6.delete(0, END)
+
 
 def getSelectedRow(event):
     global selected_row
     index = listBox.curselection()[0]
     selected_row = listBox.get(index)
-    print(index)
+    deleteAllEntries()
+    e1.insert(END, selected_row[1])
+    e2.insert(END, selected_row[2])
+    e3.insert(END, selected_row[3])
+    e4.insert(END, selected_row[4])
+    e5.insert(END, selected_row[5])
+    e6.insert(END, selected_row[6])
 
 
 def addCommand():
@@ -17,7 +31,7 @@ def addCommand():
     listBox.delete(0, END)
     listBox.insert(END, (date_text.get(), earning_text.get(), exercise_text.get(),
                          study_text.get(), diet_text.get(), python_text.get()))
-
+    deleteAllEntries()
 
 def viewCommand():
     listBox.delete(0, END)
@@ -34,6 +48,8 @@ def searchCommand():
 
 def deleteCommand():
     backend.delete(selected_row[0])
+    viewCommand()
+    deleteAllEntries()
 
 
 win = Tk()
